@@ -3,7 +3,10 @@ const puppeteer = require("puppeteer")
 const { URI_BOOK_MAP, SELECTOR_REVIEWS, SELECTOR_REVIEWS_COUNT } = require("../config/constants")
 
 module.exports = {
-        async search(request, response) {
+        index: (request, response) => {
+            return response.json({ message: 'Hi there, netlify functions work!' })
+        },
+        search: async (request, response) => {
             const { key, page } = request.query
             const pagination = page ? page : 1
 
